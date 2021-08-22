@@ -1,0 +1,22 @@
+{
+  "name": "Integration of Zoho CRM For wpforms",
+  "version": "1.0.0",
+  "short_name": "FF-Zoho CRM",
+  "description": "Sends wpforms entries to Zoho CRM",
+  "icons": [
+    {
+      "src": "../img/logo-bg.svg",
+      "sizes": "256x256",
+      "type": "image/svg"
+    },
+    {
+      "src": "../img/bit-form.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": ".",
+  "display": "minimal-ui",
+  "theme_color": "#13233c",
+  "background_color": "#13233c"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "bitcode/bit-cf7-zoho-crm-lite",
+    "description": "A Helper Plugin for Contact form 7 to push data in Zoho CRM",
+    "license": "gpl-2",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "BitCode\\BITWPFZC\\": "includes/"
+        }
+    }
+}
