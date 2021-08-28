@@ -3,6 +3,7 @@ namespace BitCode\BITWPFZC\Admin;
 
 use BitCode\BITWPFZC\Core\Util\DateTimeHelper;
 use BitCode\BITWPFZC\Admin\Gclid\Handler as GclidHandler;
+
 /**
  * The admin menu and page handler class
  */
@@ -11,8 +12,9 @@ class Admin_Bar
 {
     public function register()
     {
-        add_action('admin_menu', array( $this, 'AdminMenu' ), 9, 0);
-        add_action('admin_enqueue_scripts', array( $this, 'AdminAssets' ));
+        add_action('in_admin_header', [$this, 'RemoveAdminNotices']);
+        add_action('admin_menu', [$this, 'AdminMenu'], 9, 0);
+        add_action('admin_enqueue_scripts', [$this, 'AdminAssets']);
     }
 
 
@@ -97,8 +99,10 @@ class Admin_Bar
                 'baseURL'   => $base_path_admin . 'admin.php?page=bitwpfzc#',
                 'ajaxURL'   => admin_url('admin-ajax.php'),
                 'allForms'  => is_wp_error($all_forms) ? null : $all_forms,
+                'erase_all'  => get_option('bitwpfzc_erase_all'),
                 'dateFormat'  => get_option('date_format'),
                 'timeFormat'  => get_option('time_format'),
+                'new_page'  => admin_url('admin.php?page=wpforms-builder'),
                 'timeZone'  => DateTimeHelper::wp_timezone_string(),
             )
         );
@@ -107,7 +111,6 @@ class Admin_Bar
             $bitwpfzc['translations'] = $bitwpfzc_i18n_strings;
         }
         wp_localize_script('bitwpfzc-admin-script', 'bitwpfzc', $bitwpfzc);
-
     }
 
     /**
@@ -117,5 +120,15 @@ class Admin_Bar
     public function RootPage()
     {
         require_once BITWPFZC_PLUGIN_DIR_PATH . '/views/view-root.php';
+    }
+
+    public function RemoveAdminNotices()
+    {
+        global $plugin_page;
+        if (strpos($plugin_page, 'bitwpfzc') === false) {
+            return;
+        }
+        remove_all_actions('admin_notices');
+        remove_all_actions('all_admin_notices');
     }
 }

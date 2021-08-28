@@ -13,6 +13,7 @@ import Loader from './components/Loaders/Loader'
 import logo from './resource/img/integ/crm.svg'
 import Integrations from "./components/Integrations"
 import TableLoader from './components/Loaders/TableLoader'
+import Settings from './pages/Settings'
 
 const AllForms = lazy(() => import('./pages/AllForms'))
 const Error404 = lazy(() => import('./pages/Error404'))
@@ -41,6 +42,13 @@ function App() {
                 >
                   {__('My Forms', 'bitwpfzc')}
                 </NavLink>
+                <NavLink
+                  exact
+                  to="/settings"
+                  activeClassName="app-link-active"
+                >
+                  {__('Settings', 'bitwpfzc')}
+                </NavLink>
               </nav>
             </div>
           </div>
@@ -55,6 +63,11 @@ function App() {
               <Route path="/form/:formID/integrations">
                 <Suspense fallback={<Loader className="g-c" style={loaderStyle} />}>
                   <Integrations/>
+                </Suspense>
+              </Route>
+              <Route path="/settings">
+                <Suspense fallback={<Loader className="g-c" style={loaderStyle} />}>
+                  <Settings/>
                 </Suspense>
               </Route>
               <Route path="*">

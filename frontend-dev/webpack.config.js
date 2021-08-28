@@ -8,16 +8,12 @@ const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const safePostCssParser = require('postcss-safe-parser')
 const svgToMiniDataURI = require('mini-svg-data-uri')
-// const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const autoprefixer = require('autoprefixer');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = (env, argv) => {
   const production = argv.mode !== 'development'
-
+  const { hot } = argv
   return {
-    // devtool: production ? false : 'source-map',
     devtool: production ? false : 'eval',
     entry: {
       index: path.resolve(__dirname, 'src/index.js'),
@@ -30,64 +26,19 @@ module.exports = (env, argv) => {
       chunkFilename: production ? '[name].js?v=[contenthash:6]' : '[name].js',
       library: '_bitwpfzc',
       libraryTarget: 'umd',
-      // publicPath: '/',
     },
-    /* devServer: {
-      open: true,
-      writeToDisk: true,
-      // path: path.resolve(__dirname, '../assets/'),
-      // inline: true,
-      // host: 'bitcode.io',
-      /*  overlay: {
-         warnings: true,
-         errors: true,
-       }, */
-    // contentBase: path.resolve(__dirname, '../assets/js'),
-    // path: path.resolve(__dirname, '../assets/js/'),
-    // publicPath: path.resolve(__dirname, '../assets/'),
-    // public: 'http://bitcode.io/wp-admin/admin.php?page=bitform#',
-
-    /*
-    proxy: [
-      {
-        path: path.resolve(__dirname, '../assets/'),
-        // path: 'http://bitcode.io/wp-admin/admin.php?page=bitform#',
-        target: 'http://bitcode.io/',
-      },
-    ],
-  }, */
-    devServer: {
-      // open: true,
-      // hotOnly: true,
-      hot: true,
-      // host: 'blank-site-php.io',
-      // port: 80,
-      // writeToDisk: true,
-      contentBase: path.resolve(__dirname, '../assets/'),
-      // contentBasePublicPath: '/js',
-      // publicPath: 'http://blank-site-php.io/',
-      // allowedHosts: ["blank-site-php.io"],
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      // disableHostCheck: true,
-      /* proxy: {
-        '/': {
-          target: 'http://blank-site-php.io:80',
-          // publicPath: '/wp-content/plugins/BitForm/assets/js',
-          secure: false,
-          changeOrigin: true,
-          autoRewrite: true,
-          headers: {
-            'X-ProxiedBy-Webpack': true,
-          },
-        },
-      }, */
-      // publicPath: path.resolve(__dirname, '../assets/js/'),
+    target: !production ? 'web' : 'browserslist',
+    ...hot && {
+      devServer: {
+        // publicPath: 'http://localhost:3000',
+        hot: true,
+        liveReload: true,
+        port: 3000,
+        writeToDisk: true,
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        disableHostCheck: true,
+      }
     },
-    /*  performance: {
-       hints: 'error',
-       maxAssetSize: 100 * 1024, // 100 KiB
-       maxEntrypointSize: 100 * 1024, // 100 KiB
-     }, */
     optimization: {
       runtimeChunk: 'single',
       splitChunks: {
@@ -136,14 +87,6 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      /* ...(production ? [] : [
-        new webpack.DllReferencePlugin({
-          name: '_bitwpfzc',
-          context: '/',
-          manifest: path.resolve(__dirname, 'dll-plugin-manifest.json'),
-        }),
-      ]), */
-      // new BundleAnalyzerPlugin(),
       new CleanWebpackPlugin(),
       new webpack.DefinePlugin({ 'process.env': { NODE_ENV: production ? JSON.stringify('production') : JSON.stringify('development') } }),
       new MiniCssExtractPlugin({
@@ -161,14 +104,6 @@ module.exports = (env, argv) => {
             to: path.resolve(__dirname, '../assets/js/manifest.json'),
           },
           {
-            from: path.resolve(__dirname, 'bitform-logo-icon.ico'),
-            to: path.resolve(__dirname, '../assets/img/bitform-logo-icon.ico'),
-          },
-          {
-            from: path.resolve(__dirname, 'bit-form.png'),
-            to: path.resolve(__dirname, '../assets/img/bit-form.png'),
-          },
-          {
             from: path.resolve(__dirname, 'logo-bg.svg'),
             to: path.resolve(__dirname, '../assets/img/logo-bg.svg'),
           },
@@ -182,27 +117,13 @@ module.exports = (env, argv) => {
           },
         ],
       }),
-      // new BrowserSyncPlugin({
-      //   // browse to http://localhost:3000/ during development,
-      //   // ./public directory is being served
-      //   host: 'localhost',
-      //   port: 3000,
-      //   // files: ['.php'],
-      //   // server: { baseDir: [path.resolve(__dirname, '../assets/')] },
-      //   proxy: 'http://bitcode.io',
-      //   files: [{
-      //     match: [
-      //       '.php',
-      //       // '**/*.php'
-      //     ],
-      //     fn(event, file) {
-      //       if (event === 'change') {
-      //         const bs = require('browser-sync').get('bs-webpack-plugin')
-      //         bs.reload()
-      //       }
-      //     },
-      //   }],
-      // }, { reload: false }),
+      ...(!hot ? [] : [new ReactRefreshWebpackPlugin({
+        overlay: {
+          sockIntegration: 'wds',
+          sockHost: 'localhost',
+          sockPort: 3000,
+        },
+      })]),
       ...(!production ? [] : [
         new WorkboxPlugin.GenerateSW({
           clientsClaim: production,
@@ -244,7 +165,7 @@ module.exports = (env, argv) => {
               ['@babel/plugin-proposal-class-properties', { loose: true }],
               ['@babel/plugin-proposal-private-methods', { loose: true }],
               ['@wordpress/babel-plugin-makepot', { output: path.resolve(__dirname, 'locale.pot') }],
-              // "@babel/plugin-transform-regenerator",
+              ...(!hot ? [] : ['react-refresh/babel']),
             ],
           },
         },

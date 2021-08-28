@@ -2,6 +2,8 @@
 
 namespace BitCode\BITWPFZC\Admin;
 
+use BitCode\BITWPFZC\Core\Util\Route;
+
 class AdminAjax
 {
     public function __construct()
@@ -25,6 +27,15 @@ class AdminAjax
                 }
             }
         }
+        Route::post('erase_all', [$this, 'toggle_erase_all']);
         return;
+    }
+
+    public function toggle_erase_all($data) {
+        if (empty($data->toggle)) {
+            wp_send_json_error(__('Toggle status can\'t be empty', 'bitgfzc'));
+        }
+        update_option('bitwpfzc_erase_all', (bool)  $data->toggle);
+        wp_send_json_success(__('Erase in delete toggled', 'bitgfzc'));
     }
 }

@@ -1,6 +1,6 @@
 === Integration of Zoho CRM and wpforms ===
 Contributors: bitpressadmin
-Tags: zoho fluentform, zoho crm, fluent form integration
+Tags: zoho, zoho crm, wpforms integration
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -36,7 +36,7 @@ The prerequisites you need to use our plug-in :
 
 ⚡ Features on free version:
 
-▪  User can send any Fluent form data to only "Leads" module of Zoho CRM
+▪  User can send any wpforms data to only "Leads" module of Zoho CRM
 ▪  Only one CRM layout can be accessible - "Standard"
 ▪  Transmit data to all the Zoho CRM fields including custom field.
 ▪  This plugin allow user to send  custom value also.
@@ -45,7 +45,7 @@ The prerequisites you need to use our plug-in :
 
 ⚡ features on pro version:
 
-▪ This plugin allows you to transfer any Fluent form data to any modules of Zoho CRM including custom module.
+▪ This plugin allows you to transfer any wpforms data to any modules of Zoho CRM including custom module.
 ▪  Send data to the related list.
 ▪  User can upload file to the ZOHO CRM file upload field through plugin.
 ▪  Set some actions which allows user to track their leads/Contacts more preciously.

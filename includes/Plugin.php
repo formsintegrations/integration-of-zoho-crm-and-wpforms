@@ -52,8 +52,7 @@ final class Plugin
 
     public function wpfNotFound()
     {
-        $notFoundNotice = '<p>Contact Form 7  plugin is required<p>';
-        echo '<div class="error">' . $notFoundNotice . '</div>';
+        echo '<div class="error"><p>wpforms plugin is required<p></div>';
     }
 
     /**

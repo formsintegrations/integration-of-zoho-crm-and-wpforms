@@ -4,7 +4,6 @@ namespace BitCode\BITWPFZC\Admin\WPF;
 
 use BitCode\BITWPFZC\Integration\IntegrationHandler;
 use BitCode\BITWPFZC\Integration\Integrations;
-use FluentForm\App\Modules\Form\FormFieldsParser;
 
 final class Handler
 {
