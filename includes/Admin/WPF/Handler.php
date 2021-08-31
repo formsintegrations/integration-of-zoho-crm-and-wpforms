@@ -85,7 +85,7 @@ final class Handler
     {
         $form_id = $form_data['id'];
         if (!empty($form_id)) {
-            Integrations::executeIntegrations($form_id, $fields);
+            Integrations::executeIntegrations($form_id, $entry['fields']);
         }
     }
 }

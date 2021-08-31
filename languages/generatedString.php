@@ -3,9 +3,11 @@
 $bitwpfzc_i18n_strings = array(
     '404' => __('404', 'bitwpfzc'),
 
-    'Integrations for wpforms' => __('Integrations for wpforms', 'bitwpfzc'),
+    'Integrations for WPForms' => __('Integrations for WPForms', 'bitwpfzc'),
 
     'My Forms' => __('My Forms', 'bitwpfzc'),
+
+    'Settings' => __('Settings', 'bitwpfzc'),
 
     'Integration Settings' => __('Integration Settings', 'bitwpfzc'),
 
@@ -123,7 +125,7 @@ $bitwpfzc_i18n_strings = array(
 
     'Upsert Preferance' => __('Upsert Preferance', 'bitwpfzc'),
 
-    'Overwrite existing field values in Zoho CRM with empty field values from Zoho CRM For wpforms while upserting a record?' => __('Overwrite existing field values in Zoho CRM with empty field values from Zoho CRM For wpforms while upserting a record?', 'bitwpfzc'),
+    'Overwrite existing field values in Zoho CRM with empty field values from Zoho CRM For WPForms while upserting a record?' => __('Overwrite existing field values in Zoho CRM with empty field values from Zoho CRM For WPForms while upserting a record?', 'bitwpfzc'),
 
     'Yes' => __('Yes', 'bitwpfzc'),
 
@@ -281,14 +283,14 @@ $bitwpfzc_i18n_strings = array(
 
     'Go Home' => __('Go Home', 'bitwpfzc'),
 
-    'Thank you for installing Zoho CRM for wpforms.' => __('Thank you for installing Zoho CRM for wpforms.', 'bitwpfzc'),
+    'Failed to toggle' => __('Failed to toggle', 'bitwpfzc'),
 
-    'Modern Form builder and database management  system' => __('Modern Form builder and database management  system', 'bitwpfzc'),
+    'Erase all data of this plugin in deletion' => __('Erase all data of this plugin in deletion', 'bitwpfzc'),
 
-    'for Wordpress' => __('for Wordpress', 'bitwpfzc'),
+    'Thank you for installing WPForms for Zoho CRM.' => __('Thank you for installing WPForms for Zoho CRM.', 'bitwpfzc'),
 
     'Create First Form' => __('Create First Form', 'bitwpfzc'),
 
-    'Welcome to Zoho CRM for wpforms' => __('Welcome to Zoho CRM for wpforms', 'bitwpfzc')
+    'Welcome to WPForms for Zoho CRM' => __('Welcome to WPForms for Zoho CRM', 'bitwpfzc')
 );
 /* THIS IS THE END OF THE GENERATED FILE */

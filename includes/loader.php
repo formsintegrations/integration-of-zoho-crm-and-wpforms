@@ -9,7 +9,12 @@ define('BITWPFZC_ROOT_URI', set_url_scheme(plugins_url('', BITWPFZC_PLUGIN_MAIN_
 define('BITWPFZC_ASSET_URI', BITWPFZC_ROOT_URI . '/assets');
 define('BITWPFZC_ASSET_JS_URI', BITWPFZC_ROOT_URI . '/assets/js');
 // Autoload vendor files.
-require_once BITWPFZC_PLUGIN_DIR_PATH . 'vendor/autoload.php';
-// Initialize the plugin.
-BitCode\BITWPFZC\Plugin::load(BITWPFZC_PLUGIN_MAIN_FILE);
+if (file_exists(BITWPFZC_PLUGIN_DIR_PATH . 'vendor/autoload.php')) {
+    include_once BITWPFZC_PLUGIN_DIR_PATH . 'vendor/autoload.php';
+    // Initialize the plugin.
+    BitCode\BITWPFZC\Plugin::load(BITWPFZC_PLUGIN_MAIN_FILE);
+} else {
+    echo 'BITWPZC: vendors missing';
+}
+
 

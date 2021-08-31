@@ -28,10 +28,10 @@ function App() {
 
           <div className="nav-wrp">
             <div className="flx">
-              <div className="logo flx" title={__('Integrations for wpforms', 'bitwpfzc')}>
+              <div className="logo flx" title={__('Integrations for WPForms', 'bitwpfzc')}>
                 <Link to="/" className="flx">
                   <img src={logo} alt="logo" className="ml-2" />
-                  <span className="ml-2">Integrations for wpforms</span>
+                  <span className="ml-2">Integrations for WPForms</span>
                 </Link>
               </div>
               <nav className="top-nav ml-2">

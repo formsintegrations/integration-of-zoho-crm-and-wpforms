@@ -1,6 +1,6 @@
-=== Integration of Zoho CRM and wpforms ===
+=== Integration of Zoho CRM and WPForms ===
 Contributors: bitpressadmin
-Tags: zoho, zoho crm, wpforms integration
+Tags: Zoho CRM, WPForms, Zoho, API, Leads, CRM, zoho leads, zoho addon, WPForms integration with zoho crm, zoho add-on, zoho extension, zoho plugin, WPForms integration, zoho crm integration with WPForms, zoho crm with WPForms, WPForms with zoho crm, GF integration, Lead Capture, Lead Magnet, Webforms, Zoho CRM Wordpress, Lead Builder, Web To Lead, Lead Generation, Zoho API 2.0, Lead, Account, lead capture, webform to lead, zoho crm integration, WP integrations, WPForms and crm, Bit Apps, BitPress, WP Integrations, Bit Form, Zoho Partner, Bit Form Integration, Bit Form Integration with zoho CRM, zoho WPForms, zoho WPForm, zoho crm, WPForms integration, newsletter, crm, Email Marketing, Funnel, Email Newsletter, contact form, contact forms, wp forms, forms, form builder, contact form builder, WPForm, WPForm zoho CRM
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -17,18 +17,18 @@ A powerful integration tool to increase your leads/Contacts.
 
 As more and more people are using the web for their sales and marketing, it's only natural that businesses are using the latest technologies to create the most powerful marketing tools.
  
-*Integration of Zoho CRM and wpforms*, a module that allows you to hook into the Contact Form7 system to create and manage your sales leads, contacts and appointments with Zoho CRM. Whenever users submit any form via Contact form7, the integration will allow admin to send all the form submissions to Zoho CRM.
+*Integration of Zoho CRM and WPForms*, a module that allows you to hook into the WPForms system to create and manage your sales leads, contacts and appointments with Zoho CRM. Whenever users submit any form via WPForms, the integration will allow admin to send all the form submissions to Zoho CRM.
 
 📜 Things you need :
 
 The prerequisites you need to use our plug-in :
- ✔ wpforms.
+ ✔ WPForms.
  ✔ A ZOHO CRM account.
 
 
 ⚙  Integration Setup:
 
- ✔ Install & activate wpforms plugin.
+ ✔ Install & activate WPForms plugin.
  ✔ Install & activate Zoho CRM plugin.
  ✔ For Client id & Secret press Zoho API console.
  ✔ From Zoho CRM  settings enter Integration Name, Data Center, Homepage URL, and Authorized Redirect URL & you will get id & secret.
@@ -36,7 +36,7 @@ The prerequisites you need to use our plug-in :
 
 ⚡ Features on free version:
 
-▪  User can send any wpforms data to only "Leads" module of Zoho CRM
+▪  User can send any WPForms data to only "Leads" module of Zoho CRM
 ▪  Only one CRM layout can be accessible - "Standard"
 ▪  Transmit data to all the Zoho CRM fields including custom field.
 ▪  This plugin allow user to send  custom value also.
@@ -45,7 +45,7 @@ The prerequisites you need to use our plug-in :
 
 ⚡ features on pro version:
 
-▪ This plugin allows you to transfer any wpforms data to any modules of Zoho CRM including custom module.
+▪ This plugin allows you to transfer any WPForms data to any modules of Zoho CRM including custom module.
 ▪  Send data to the related list.
 ▪  User can upload file to the ZOHO CRM file upload field through plugin.
 ▪  Set some actions which allows user to track their leads/Contacts more preciously.
@@ -58,7 +58,7 @@ Actions are -  Workflow, Attachment, Approval list, BluePrint, GCLID, Upsert Rec
 📹 For video tutorial visit our [Channel]().
 
 🎉 Key Benefits of Plugin :
-Using  wpforms to Zoho CRM plugin, you can manage your customers, sales, and leads.When a customer submit form on your site, it will be saved as leads or contact in to ZOHO CRM automatically.You can see the information in real time. This gives your business a simple and powerful solution to managing your contacts.
+Using  WPForms to Zoho CRM plugin, you can manage your customers, sales, and leads.When a customer submit form on your site, it will be saved as leads or contact in to ZOHO CRM automatically.You can see the information in real time. This gives your business a simple and powerful solution to managing your contacts.
 
 
 ✨ Overview of other products we are offering :

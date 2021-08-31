@@ -1,8 +1,8 @@
 {
-  "name": "Integration of Zoho CRM For wpforms",
+  "name": "Integration of Zoho CRM For WPForms",
   "version": "1.0.0",
   "short_name": "FF-Zoho CRM",
-  "description": "Sends wpforms entries to Zoho CRM",
+  "description": "Sends WPForms entries to Zoho CRM",
   "icons": [
     {
       "src": "../img/logo-bg.svg",

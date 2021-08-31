@@ -59,10 +59,10 @@ class RecordApiHelper
                 if ($fieldPair->formField === 'custom' && isset($fieldPair->customValue)) {
                     $fieldData[$fieldPair->zohoFormField] = $this->formatFieldValue($fieldPair->customValue, $defaultConf->layouts->{$module}->{$layout}->fields->{$fieldPair->zohoFormField});
                 } else if (strpos($fieldPair->formField, '=>') !== false) {
-                    $formFieldValue = null;
-                    foreach (explode('=>', $fieldPair->formField) as $key => $value) {
-                        $formFieldValue = !isset($formFieldValue) ? $fieldValues[$value] : $formFieldValue[$value];
-                    }
+                    $fids = explode('=>', $fieldPair->formField);
+                    
+                    if(isset($fieldValues[$fids[0]][$fids[1]]))
+                        $formFieldValue = $fieldValues[$fids[0]][$fids[1]];
                     if (!is_null($formFieldValue)) {
                         $fieldData[$fieldPair->zohoFormField] = $this->formatFieldValue($formFieldValue, $defaultConf->layouts->{$module}->{$layout}->fields->{$fieldPair->zohoFormField});
                     }
@@ -92,13 +92,17 @@ class RecordApiHelper
         }
         
         $requestParams['data'][] = (object) $fieldData;
+
         $recordApiResponse = '';
         $recordApiResponse = $this->insertRecord($module, (object) $requestParams);
         
-        if (isset($recordApiResponse->status) &&  $recordApiResponse->status === 'error') {
-            Log::save($formID, $integId, wp_json_encode(['type' => 'record', 'type_name' => $module]), 'error', wp_json_encode($recordApiResponse));
-        } else {
+        if (!empty($recordApiResponse->data)
+            && !empty($recordApiResponse->data[0]->code)
+            && $recordApiResponse->data[0]->code === 'SUCCESS'
+        ) {
             Log::save($formID, $integId, wp_json_encode(['type' => 'record', 'type_name' => $module]), 'success', wp_json_encode($recordApiResponse));
+        } else {
+            Log::save($formID, $integId, wp_json_encode(['type' => 'record', 'type_name' => $module]), 'error', wp_json_encode($recordApiResponse));
         }
 
         return $recordApiResponse;

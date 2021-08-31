@@ -395,14 +395,6 @@ final class ZohoCRMHandler
         if (is_wp_error($zcrmApiResponse)) {
             return $zcrmApiResponse;
         }
-        if (
-            !empty($zcrmApiResponse->data)
-            && !empty($zcrmApiResponse->data[0]->code)
-            && $zcrmApiResponse->data[0]->code === 'SUCCESS'
-            && count($integrationDetails->relatedlists)
-        ) {
-            $zcrmApiResponse = apply_filters('bitwpfzc_addRelatedList', $zcrmApiResponse, $this->_formID, $entryID, $this->_integrationID, $logID, $fieldValues, $integrationDetails, $recordApiHelper);
-        }
         return $zcrmApiResponse;
     }
 }
