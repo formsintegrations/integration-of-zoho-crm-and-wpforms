@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name: Integration of Zoho CRM and WPForms
- * Plugin URI:  bitpress.pro
+ * Plugin URI:  https://www.bitapps.pro/wp-form-zohocrm
  * Description: Sends WPForms entries to Zoho CRM
  * Version:     1.0.1
- * Author:      BitPress
- * Author URI:  bitapps.pro
+ * Author:      Bit Apps
+ * Author URI:  https://bitapps.pro
  * Text Domain: bitwpfzc
  * Requires PHP: 5.6
  * Domain Path: /languages
