@@ -4,7 +4,7 @@ Tags: Zoho CRM, WPForms, Zoho, API, Leads, CRM, zoho leads, zoho addon, WPForms 
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 
 A powerful integration tool to increase your leads/Contacts. 
@@ -82,6 +82,9 @@ Using  WPForms to Zoho CRM plugin, you can manage your customers, sales, and lea
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Fix: Issues on Zoho CRM datetime Field 
 
 = 1.0.0 =
 * Initial release

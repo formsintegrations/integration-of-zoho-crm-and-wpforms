@@ -24,7 +24,7 @@ final class Handler
         }
 
         $fields = [];
-        $fieldToExclude = ['divider','html','address','page-break','file-upload','payment-single','payment-multiple','payment-checkbox','payment-dropdown','payment-credit-card','payment-total'];
+        $fieldToExclude = ['divider','html','address','page-break', 'pagebreak', 'file-upload','payment-single','payment-multiple','payment-checkbox','payment-dropdown','payment-credit-card','payment-total'];
         foreach ($fieldDetails as  $id => $field) {
             if (in_array($field['type'], $fieldToExclude)) {
                 continue;

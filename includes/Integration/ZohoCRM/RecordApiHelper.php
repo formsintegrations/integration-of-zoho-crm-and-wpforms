@@ -151,8 +151,23 @@ class RecordApiHelper
             } elseif ($apiFormat === 'string' && $formatSpecs->data_type !== 'datetime') {
                 $formatedValue = !is_string($value) ? json_encode($value) : $value;
             } elseif ($formatSpecs->data_type === 'datetime') {
+                if (is_array($value)) {
+                    if (isset($value['date'])) {
+                        $value = $value['date'];
+                        $date_format = 'm/d/Y';
+                    } elseif (isset($value['time'])) {
+                        $value = $value['time'];
+                        $date_format = 'H:i A';
+                    } elseif (isset($value['time']) && isset($value['date'])) {
+                        $value = isset($value['date']) . ' ' . $value['time'];
+                        $date_format = 'm/d/Y H:i A';
+                    } else {
+                        $value = '0000-00-00T00:00';
+                        $date_format = 'Y-m-d\TH:i';
+                    }
+                }
                 $dateTimeHelper = new DateTimeHelper();
-                $formatedValue = $dateTimeHelper->getFormated($value, 'Y-m-d\TH:i', wp_timezone(), 'Y-m-d\TH:i:sP', null);
+                $formatedValue = $dateTimeHelper->getFormated($value, $date_format, wp_timezone(), 'Y-m-d\TH:i:sP', null);
             } else {
                 $stringyfiedValue = !is_string($value) ? json_encode($value) : $value;
 

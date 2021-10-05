@@ -4,7 +4,7 @@
  * Plugin Name: Integration of Zoho CRM and WPForms
  * Plugin URI:  bitpress.pro
  * Description: Sends WPForms entries to Zoho CRM
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      BitPress
  * Author URI:  bitapps.pro
  * Text Domain: bitwpfzc
@@ -24,7 +24,7 @@ $bitwpfzc_db_version = '1.0';
 
 
 // Define most essential constants.
-define('BITWPFZC_VERSION', '1.0.0');
+define('BITWPFZC_VERSION', '1.0.1');
 define('BITWPFZC_PLUGIN_MAIN_FILE', __FILE__);
 
 
