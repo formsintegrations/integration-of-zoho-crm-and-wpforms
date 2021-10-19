@@ -2,16 +2,18 @@
 Contributors: bitpressadmin
 Tags: Zoho CRM, WPForms, Zoho, API, Leads, CRM, zoho leads, zoho addon, WPForms integration with zoho crm, zoho add-on, zoho extension, zoho plugin, WPForms integration, zoho crm integration with WPForms, zoho crm with WPForms, WPForms with zoho crm, GF integration, Lead Capture, Lead Magnet, Webforms, Zoho CRM Wordpress, Lead Builder, Web To Lead, Lead Generation, Zoho API 2.0, Lead, Account, lead capture, webform to lead, zoho crm integration, WP integrations, WPForms and crm, Bit Apps, BitPress, WP Integrations, Bit Form, Zoho Partner, Bit Form Integration, Bit Form Integration with zoho CRM, zoho WPForms, zoho WPForm, zoho crm, WPForms integration, newsletter, crm, Email Marketing, Funnel, Email Newsletter, contact form, contact forms, wp forms, forms, form builder, contact form builder, WPForm, WPForm zoho CRM
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 5.8.1
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 
 With integration of WP Form & Zoho CRM, your leads will be saved as contacts or leads in Zoho CRM automatically.
 
 == Description ==
 
-> 📢 You can avail this plugin free if you tag us as your "Zoho Partner". Read the details here - [**Bit Press products giveaway**](https://www.bitapps.pro/zoho-partner-tag)
+= A powerful integration tool to sync your WP Form  submission/entries with Zoho CRM. =
+
+> 📢 You can avail this plugin free if you tag us as your "Zoho Partner". Read the details here - [**Bit Apps products giveaway**](https://www.bitapps.pro/zoho-partner-tag)
 
 > 📢 We are open for freelance work/custom development for this plugin. [**Connect**](https://bitapps.pro/contact) with us for further information
 
@@ -86,6 +88,7 @@ Using the **Integration of Zoho CRM & WP Form** plugin, you can manage your cust
 ♻ [**Integration Of Zoho CRM & Fluent Form:**](https://wordpress.org/plugins/integration-of-zoho-crm-and-fluent-form/)  A powerful integration tool to keep track your Fluent form data in a mannered way.
 
 🔔 For more update about our products we cordially request you to join out [**Fb Community**](https://www.facebook.com/groups/bitcommunityusers).
+
 == Installation ==
 
 1. Download the plugin.
@@ -96,6 +99,8 @@ Using the **Integration of Zoho CRM & WP Form** plugin, you can manage your cust
 
 
 == Changelog ==
+= 1.0.2 =
+* Fix: Issues on Zoho CRM date Field
 
 = 1.0.1 =
 * Fix: Issues on Zoho CRM datetime Field 

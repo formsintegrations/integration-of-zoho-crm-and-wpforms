@@ -58,11 +58,12 @@ class RecordApiHelper
                 }
                 if ($fieldPair->formField === 'custom' && isset($fieldPair->customValue)) {
                     $fieldData[$fieldPair->zohoFormField] = $this->formatFieldValue($fieldPair->customValue, $defaultConf->layouts->{$module}->{$layout}->fields->{$fieldPair->zohoFormField});
-                } else if (strpos($fieldPair->formField, '=>') !== false) {
+                } elseif (strpos($fieldPair->formField, '=>') !== false) {
                     $fids = explode('=>', $fieldPair->formField);
                     
-                    if(isset($fieldValues[$fids[0]][$fids[1]]))
+                    if (isset($fieldValues[$fids[0]][$fids[1]])) {
                         $formFieldValue = $fieldValues[$fids[0]][$fids[1]];
+                    }
                     if (!is_null($formFieldValue)) {
                         $fieldData[$fieldPair->zohoFormField] = $this->formatFieldValue($formFieldValue, $defaultConf->layouts->{$module}->{$layout}->fields->{$fieldPair->zohoFormField});
                     }
@@ -116,22 +117,21 @@ class RecordApiHelper
         }
 
         switch ($formatSpecs->json_type) {
-            case 'jsonarray':
-                $apiFormat = 'array';
-                break;
-            case 'jsonobject':
-                $apiFormat = 'object';
-                break;
+        case 'jsonarray':
+            $apiFormat = 'array';
+            break;
+        case 'jsonobject':
+            $apiFormat = 'object';
+            break;
 
-            default:
-                $apiFormat = $formatSpecs->json_type;
-                break;
+        default:
+            $apiFormat = $formatSpecs->json_type;
+            break;
         }
-
         $formatedValue = '';
         $fieldFormat = gettype($value);
         if ($fieldFormat === $apiFormat && $formatSpecs->data_type !== 'datetime') {
-            $formatedValue = $value;
+            $formatedValue = $fieldFormat === 'string' ? html_entity_decode($value) : $value;
         } else {
             if ($apiFormat === 'array' || $apiFormat === 'object') {
                 if ($fieldFormat === 'string') {
@@ -148,8 +148,8 @@ class RecordApiHelper
                 if ($apiFormat === 'object') {
                     $formatedValue = (object) $formatedValue;
                 }
-            } elseif ($apiFormat === 'string' && $formatSpecs->data_type !== 'datetime') {
-                $formatedValue = !is_string($value) ? json_encode($value) : $value;
+            } elseif ($apiFormat === 'string' && $formatSpecs->data_type !== 'datetime' && $formatSpecs->data_type !== 'date') {
+                $formatedValue = !is_string($value) ? json_encode($value) : html_entity_decode($value);
             } elseif ($formatSpecs->data_type === 'datetime') {
                 if (is_array($value)) {
                     if (isset($value['date'])) {
@@ -168,29 +168,50 @@ class RecordApiHelper
                 }
                 $dateTimeHelper = new DateTimeHelper();
                 $formatedValue = $dateTimeHelper->getFormated($value, $date_format, wp_timezone(), 'Y-m-d\TH:i:sP', null);
+            } elseif ($formatSpecs->data_type === 'date') {
+                if (is_array($value)) {
+                    if (isset($value['date'])) {
+                        $value = $value['date'];
+                        $date_format = 'm/d/Y';
+                    } elseif (isset($value['time'])) {
+                        $value = $value['time'];
+                        $date_format = 'H:i A';
+                    } elseif (isset($value['time']) && isset($value['date'])) {
+                        $value = isset($value['date']) . ' ' . $value['time'];
+                        $date_format = 'm/d/Y H:i A';
+                    } else {
+                        $value = '0000-00-00T00:00';
+                        $date_format = 'Y-m-d\TH:i';
+                    }
+                }
+                $dateTimeHelper = new DateTimeHelper();
+                $formatedValue = $dateTimeHelper->getFormated($value, $date_format, wp_timezone(), 'Y-m-d', null);
             } else {
-                $stringyfiedValue = !is_string($value) ? json_encode($value) : $value;
+                $stringyfieldValue = !is_string($value) ? json_encode($value) : $value;
 
                 switch ($apiFormat) {
-                    case 'double':
-                        $formatedValue = (float) $stringyfiedValue;
-                        break;
+                case 'double':
+                    $formatedValue = (float) $stringyfieldValue;
+                    break;
 
-                    case 'boolean':
-                        $formatedValue = (bool) $stringyfiedValue;
-                        break;
+                case 'boolean':
+                    $formatedValue = (bool) $stringyfieldValue;
+                    break;
 
-                    case 'integer':
-                        $formatedValue = (int) $stringyfiedValue;
-                        break;
-
-                    default:
-                        $formatedValue = $stringyfiedValue;
-                        break;
+                case 'integer':
+                    $formatedValue = (int) $stringyfieldValue;
+                    break;
+                default:
+                    $formatedValue = $stringyfieldValue;
+                    break;
                 }
             }
         }
-        $formatedValueLenght = $apiFormat === 'array' || $apiFormat === 'object' ? (is_countable($formatedValue) ? \count($formatedValue) : @count($formatedValue)) : \strlen($formatedValue);
+        if ($apiFormat === 'array' || $apiFormat === 'object') {
+            $formatedValueLenght = is_countable($formatedValue) ? \count($formatedValue) : count(get_object_vars($formatedValue));
+        } else {
+            $formatedValueLenght =  \strlen($formatedValue);
+        }
         if ($formatedValueLenght > $formatSpecs->length) {
             $formatedValue = $apiFormat === 'array' || $apiFormat === 'object' ? array_slice($formatedValue, 0, $formatSpecs->length) : substr($formatedValue, 0, $formatSpecs->length);
         }
