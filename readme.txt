@@ -1,37 +1,37 @@
 === Integration of Zoho CRM and WPForms ===
 Contributors: bitpressadmin
-Tags: Zoho CRM, WPForms, Zoho, API, Leads, CRM, zoho leads, zoho addon, WPForms integration with zoho crm, zoho add-on, zoho extension, zoho plugin, WPForms integration, zoho crm integration with WPForms, zoho crm with WPForms, WPForms with zoho crm, GF integration, Lead Capture, Lead Magnet, Webforms, Zoho CRM Wordpress, Lead Builder, Web To Lead, Lead Generation, Zoho API 2.0, Lead, Account, lead capture, webform to lead, zoho crm integration, WP integrations, WPForms and crm, Bit Apps, BitPress, WP Integrations, Bit Form, Zoho Partner, Bit Form Integration, Bit Form Integration with zoho CRM, zoho WPForms, zoho WPForm, zoho crm, WPForms integration, newsletter, crm, Email Marketing, Funnel, Email Newsletter, contact form, contact forms, wp forms, forms, form builder, contact form builder, WPForm, WPForm zoho CRM
+Tags: Zoho CRM, WPForms, Zoho, API, Leads, CRM, zoho leads, zoho addon, WPForms integration with zoho crm, zoho add-on, zoho extension, zoho plugin, WPForms integration, zoho crm integration with WPForms, zoho crm with WPForms, WPForms with zoho crm, GF integration, Lead Capture, Lead Magnet, Webforms, Zoho CRM Wordpress, Lead Builder, Web To Lead, Lead Generation, Zoho API 2.0, Lead, Account, lead capture, webform to lead, zoho crm integration, WP integrations, WPForms and crm, Bit Apps, BitPress, WP Integrations, Bit Form, Zoho Partner, Bit Form Integration, Bit Form Integration with zoho CRM, zoho WPForms, zoho WPForm, zoho crm, WPForms integration, newsletter, crm, Email Marketing, Funnel, Email Newsletter, contact form, contact forms, WPFormss, forms, form builder, contact form builder, WPForm, WPForm zoho CRM
 Requires at least: 5.0
 Tested up to: 6.0.0
 Requires PHP: 5.6
 Stable tag: 1.0.3
 License: GPLv2 or later
 
-With integration of WP Form & Zoho CRM, your leads will be saved as contacts or leads in Zoho CRM automatically.
+With integration of WPForms & Zoho CRM, your leads will be saved as contacts or leads in Zoho CRM automatically.
 
 == Description ==
 
-= A powerful integration tool to sync your WP Form  submission/entries with Zoho CRM. =
+= A powerful integration tool to sync your WPForms  submission/entries with Zoho CRM. =
 
 > 📢 You can avail this plugin free if you tag us as your "Zoho Partner". Read the details here - [**Bit Apps products giveaway**](https://www.bitapps.pro/zoho-partner-tag)
 
 > 📢 We are open for freelance work/custom development for this plugin. [**Connect**](https://bitapps.pro/contact) with us for further information
 
-**Integration of WP Form & Zoho CRM** is a convenient plugin that automatically saves your customers' information into Zoho CRM, by simply submitting a form on your site. You can now manage your leads, sales and customers all in one place, which saves you time and drives more sales!
+**Integration of WPForms & Zoho CRM** is a convenient plugin that automatically saves your customers' information into Zoho CRM, by simply submitting a form on your site. You can now manage your leads, sales and customers all in one place, which saves you time and drives more sales!
 
 ### 📜 Things you need :
 
 The prerequisites you need to use our plug-in :
 
-✔ WP Form.
+✔ WPForms.
 
 ✔ A ZOHO CRM account.
 
 ### ⚙ Integration Setup:
 
-✔ Install & activate **Integration of Zoho CRM** & **WP Form** plugin.
+✔ Install & activate **Integration of Zoho CRM** & **WPForms** plugin.
 
-✔ Install & activate **WP Form plugin**.
+✔ Install & activate **WPForms plugin**.
 
 ✔ For Client id & Secret press **Zoho API console**.
 
@@ -41,7 +41,7 @@ The prerequisites you need to use our plug-in :
 
 ### ⚡ Features on free version:
 
-▪ User can send any WP Form data to only **Leads** module of Zoho CRM
+▪ User can send any WPForms data to only **Leads** module of Zoho CRM
 
 ▪ Only one CRM layout **Standard** can be accessible -
 
@@ -55,7 +55,7 @@ The prerequisites you need to use our plug-in :
 
 ### ⚡ features on pro version:
 
-▪ This plugin allows you to transfer any WP Form data to any modules of Zoho CRM including **custom module**.
+▪ This plugin allows you to transfer any WPForms data to any modules of Zoho CRM including **custom module**.
 
 ▪ Send data to the **related list**.
 
@@ -71,7 +71,7 @@ Actions are -** Workflow, Attachment, Approval list, BluePrint, GCLID, Upsert Re
 
 ### 🎉 Key Benefits of Plugin :
 
-Using the **Integration of Zoho CRM & WP Form** plugin, you can manage your customers, sales, and leads. When a customer submits a form on your site, it will automatically be saved as leads or contact to ZOHO CRM. You can see the information in real-time. It gives your business a simple and robust solution to managing your contacts.
+Using the **Integration of Zoho CRM & WPForms** plugin, you can manage your customers, sales, and leads. When a customer submits a form on your site, it will automatically be saved as leads or contact to ZOHO CRM. You can see the information in real-time. It gives your business a simple and robust solution to managing your contacts.
 
 ### ✨ Overview of other products we are offering :
 
