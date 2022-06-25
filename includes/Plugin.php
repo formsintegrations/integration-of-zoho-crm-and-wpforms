@@ -52,7 +52,7 @@ final class Plugin
 
     public function wpfNotFound()
     {
-        echo '<div class="error"><p>wpforms plugin is required for Zoho CRM integration<p></div>';
+        echo '<div class="error"><p>WPForms plugin is required for Zoho CRM integration<p></div>';
     }
 
     /**
