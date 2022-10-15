@@ -23,7 +23,7 @@ export default function IntegrationStepOne({ step, confTmp, handleInput, error, 
       <CopyText value={`${window.location.origin}`} setSnackbar={setSnackbar} className="field-key-cpy w-6 ml-0" />
 
       <div className="mt-3"><b>{__('Authorized Redirect URIs:', 'bitwpfzc')}</b></div>
-      <CopyText value={`${window.location.href}/redirect`} setSnackbar={setSnackbar} className="field-key-cpy w-6 ml-0" />
+      <CopyText value={bitwpfzc?.redirect} setSnackbar={setSnackbar} className="field-key-cpy w-6 ml-0" />
 
       <small className="d-blk mt-5">
         {__('To get Client ID and SECRET , Please Visit', 'bitwpfzc')}
@@ -49,7 +49,7 @@ export default function IntegrationStepOne({ step, confTmp, handleInput, error, 
       <button onClick={() => nextPage(2)} className="btn f-right btcd-btn-lg green sh-sm flx" type="button" disabled={!isAuthorized}>
         {__('Next', 'bitwpfzc')}
         {' '}
-&nbsp;
+        &nbsp;
         <div className="btcd-icn icn-arrow_back rev-icn d-in-b" />
       </button>
     </div>

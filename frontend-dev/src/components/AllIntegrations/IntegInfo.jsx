@@ -15,7 +15,8 @@ export default function IntegInfo({ allIntegURL, integrations }) {
   let location = window.location.toString()
 
   const toReplaceInd = location.indexOf('/info')
-  location = window.encodeURI(`${location.slice(0, toReplaceInd)}/new/${integrations[id].type}`)
+  // location = window.encodeURI(`${location.slice(0, toReplaceInd)}/new/${integrations[id].type}`)
+  location = bitwpfzc?.redirect
 
   const IntegInfoComponents = () => {
     return <ZohoCRMAuthorization crmConf={integ} step={1} redirectLocation={location} setSnackbar={setSnackbar} isInfo />

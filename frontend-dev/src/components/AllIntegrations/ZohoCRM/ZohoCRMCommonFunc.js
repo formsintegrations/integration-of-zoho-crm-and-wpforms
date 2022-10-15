@@ -215,7 +215,7 @@ export const handleAuthorize = (confTmp, setConf, setError, setisAuthorized, set
 
   setisLoading(true)
   const scopes = 'ZohoCRM.modules.ALL,ZohoCRM.settings.ALL,ZohoCRM.users.Read,zohocrm.files.CREATE'
-  const apiEndpoint = `https://accounts.zoho.${confTmp.dataCenter}/oauth/v2/auth?scope=${scopes}&response_type=code&client_id=${confTmp.clientId}&prompt=Consent&access_type=offline&redirect_uri=${encodeURIComponent(window.location.href)}/redirect`
+  const apiEndpoint = `https://accounts.zoho.${confTmp.dataCenter}/oauth/v2/auth?scope=${scopes}&response_type=code&client_id=${confTmp.clientId}&prompt=Consent&access_type=offline&redirect_uri=${bitwpfzc?.redirect}&state=${encodeURIComponent(window.location.href)}/redirect`
   const authWindow = window.open(apiEndpoint, 'zohoCRM', 'width=400,height=609,toolbar=off')
   const popupURLCheckTimer = setInterval(() => {
     if (authWindow.closed) {
@@ -246,7 +246,7 @@ const tokenHelper = (grantToken, confTmp, setConf, setisAuthorized, setisLoading
   tokenRequestParams.dataCenter = confTmp.dataCenter
   tokenRequestParams.clientId = confTmp.clientId
   tokenRequestParams.clientSecret = confTmp.clientSecret
-  tokenRequestParams.redirectURI = `${encodeURIComponent(window.location.href)}/redirect`
+  tokenRequestParams.redirectURI = bitwpfzc?.redirect
   bitsFetch(tokenRequestParams, 'zcrm_generate_token')
     .then(result => result)
     .then(result => {

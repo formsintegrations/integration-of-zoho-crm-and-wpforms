@@ -103,6 +103,7 @@ class Admin_Bar
                 'timeFormat'  => get_option('time_format'),
                 'new_page'  => admin_url('admin.php?page=wpforms-builder'),
                 'timeZone'  => DateTimeHelper::wp_timezone_string(),
+                'redirect' => get_rest_url() . 'bitwpfzc/redirect',
             )
         );
         if (get_locale() !== 'en_US' && file_exists(BITWPFZC_PLUGIN_DIR_PATH . '/languages/generatedString.php')) {
