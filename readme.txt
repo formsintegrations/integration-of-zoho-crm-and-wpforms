@@ -1,6 +1,6 @@
 === Integration of Zoho CRM and WPForms ===
 Contributors: formsintegrations
-Tags: Zoho CRM, WPForms, Zoho, API, Leads, CRM, zoho leads, zoho addon, WPForms integration with zoho crm, zoho add-on, zoho extension, zoho plugin, WPForms integration, zoho crm integration with WPForms, zoho crm with WPForms, WPForms with zoho crm, GF integration, Lead Capture, Lead Magnet, Webforms, Zoho CRM Wordpress, Lead Builder, Web To Lead, Lead Generation, Zoho API 2.0, Lead, Account, lead capture, webform to lead, zoho crm integration, WP integrations, WPForms and crm, Bit Apps, BitPress, WP Integrations, Bit Form, Zoho Partner, Bit Form Integration, Bit Form Integration with zoho CRM, zoho WPForms, zoho WPForm, zoho crm, WPForms integration, newsletter, crm, Email Marketing, Funnel, Email Newsletter, contact form, contact forms, WPFormss, forms, form builder, contact form builder, WPForm, WPForm zoho CRM
+Tags: Zoho with WPForms,  WPForms with Zoho, Zoho and WPForms, WPForms and Zoho, Zoho Integration, WPForms Integration, Zoho CRM, Integration, WPForms
 Requires at least: 5.0
 Tested up to: 6.1.1
 Requires PHP: 5.6
