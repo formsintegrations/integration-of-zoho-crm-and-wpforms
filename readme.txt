@@ -7,6 +7,9 @@ Requires PHP: 5.6
 Stable tag: 1.0.4
 License: GPLv2 or later
 
+== Description ==
+
+Visit plugin's [website](https://formsintegrations.com/wp-forms-integration-with-zoho-crm)
 
 Looking for an easy way to integrate **WPForms with Zoho CRM**? Look no further than the Integrations of Zoho CRM with WPForms plugin from WordPress! This plugin simplifies the process of connecting your Zoho CRM account and WPForms, making it easy to collect and manage your customer data. Optimize your website's functionality with this powerful plugin today!
 
