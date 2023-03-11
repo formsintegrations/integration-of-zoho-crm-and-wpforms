@@ -51,17 +51,17 @@ Here you can see the API response from Zoho CRM after WPForms is submitted. You 
 6. View the detailed log of submitted data from the plugin dashboard.
 7. Advance conditional logic.
 
- **[FEATURES ON PRO VERSION](https://formsintegrations.com/wp-forms-integration-with-zoho-crm):**
- 
- 1. All the default modules (lead, deal, contact etc.) from Zoho CRM are available in pro plugin.
- 2. Zoho CRM Custom modules are available.
- 3. All the default layouts are available.
- 4. Custom layouts are available.
- 5. You can map unlimited field of WPForms and Zoho CRM.
- 6. WordPress meta data/smart data fields are available for field mapping with Zoho CRM.
- 7. Zoho CRM related list is available to send data and you can send data in multiple related list.
- 8. All the actions are available in pro plugin.
- 9. You can do multiple/unlimited integrations.
+**[FEATURES ON PRO VERSION](https://formsintegrations.com/wp-forms-integration-with-zoho-crm):**
+
+1. All the default modules (lead, deal, contact etc.) from Zoho CRM are available in pro plugin.
+2. Zoho CRM Custom modules are available.
+3. All the default layouts are available.
+4. Custom layouts are available.
+5. You can map unlimited field of WPForms and Zoho CRM.
+6. WordPress meta data/smart data fields are available for field mapping with Zoho CRM.
+7. Zoho CRM related list is available to send data and you can send data in multiple related list.
+8. All the actions are available in pro plugin.
+9. You can do multiple/unlimited integrations.
 
 ***Here are the actions available in the pro version:*** 
 
