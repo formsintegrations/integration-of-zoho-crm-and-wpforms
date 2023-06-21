@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
-const {GenerateSW} = require('workbox-build')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const safePostCssParser = require('postcss-safe-parser')
@@ -37,6 +37,7 @@ module.exports = (env, argv) => {
         writeToDisk: true,
         headers: { 'Access-Control-Allow-Origin': '*' },
         disableHostCheck: true,
+        
       }
     },
     optimization: {
@@ -125,7 +126,7 @@ module.exports = (env, argv) => {
         },
       })]),
       ...(!production ? [] : [
-         GenerateSW({
+        new WorkboxPlugin.GenerateSW({
           clientsClaim: production,
           skipWaiting: production,
           dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./,
