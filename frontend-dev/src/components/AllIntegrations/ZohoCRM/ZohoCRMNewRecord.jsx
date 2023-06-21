@@ -12,7 +12,6 @@ export default function ZohoCRMNewRecord({ tab, settab, formID, formFields, crmC
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   // eslint-disable-next-line no-undef
-  console.log(formFields)
   const isPro = typeof bitwpfzc !== 'undefined' && bitwpfzc.isPro
   return (
     <>
@@ -75,7 +74,7 @@ export default function ZohoCRMNewRecord({ tab, settab, formID, formFields, crmC
                   <div className="pro-blur flx">
                     <div className="pro">
                       Available On
-                      <a href="https://bitpress.pro/" target="_blank" rel="noreferrer">
+                      <a href="https://formsintegrations.com/wpforms-integration-with-zoho-crm/" target="_blank" rel="noreferrer">
                         <span className="txt-pro">
                           {' '}
                           {__('Premium', 'bitwpfzc')}

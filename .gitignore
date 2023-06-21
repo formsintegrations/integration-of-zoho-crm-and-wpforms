@@ -3,5 +3,7 @@ composer.lock
 frontend-dev/locale.pot
 frontend-dev/node_modules/
 frontend-dev/yarn.lock
+frontend-dev/pnpm.yaml
 vendor/
 views/view-root.php
+frontend-dev/pnpm-lock.yaml

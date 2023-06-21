@@ -1,4 +1,5 @@
 <?php
+
 namespace BitCode\BITWPFZC;
 
 /**
@@ -18,7 +19,6 @@ use BitCode\BITWPFZC\Integration\Integrations;
 
 final class Plugin
 {
-
     /**
      * Main instance of the plugin.
      *
@@ -39,7 +39,7 @@ final class Plugin
         (new Deactivation())->register();
         (new Uninstallation())->register();
     }
-    
+
     public function init_plugin()
     {
         if (!function_exists('wpforms') || !is_callable('wpforms')) {
@@ -81,7 +81,7 @@ final class Plugin
      */
     public function plugin_action_links($links)
     {
-        $links[] = '<a href="https://bitpress.pro/documentation" target="_blank">' . __('Docs', 'bitwpfzc') . '</a>';
+        $links[] = '<a href="https://formsintegrations.com/wpforms-integration-with-zoho-crm/documentation" target="_blank">' . __('Docs', 'bitwpfzc') . '</a>';
 
         return $links;
     }

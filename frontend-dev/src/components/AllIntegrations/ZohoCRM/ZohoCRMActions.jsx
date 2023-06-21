@@ -217,7 +217,7 @@ export default function ZohoCRMActions({ crmConf, setCrmConf, formFields, tab, f
         <div className="pro-blur flx w-10" style={{ top: -25 }}>
           <div className="pro">
             {__('Available On', 'bitwpfzc')}
-            <a href="https://bitpress.pro/" target="_blank" rel="noreferrer">
+            <a href="https://formsintegrations.com/wpforms-integration-with-zoho-crm/" target="_blank" rel="noreferrer">
               <span className="txt-pro">
                 {' '}
                 {__('Premium', 'bitwpfzc')}
