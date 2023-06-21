@@ -87,8 +87,6 @@ Visit plugin's [website](https://formsintegrations.com/wp-forms-integration-with
 
 
 == Changelog ==
-= 1.0.5 =
-*Feature : Wpforms address fields added 
 
 = 1.0.4 =
 *Release Date - 15 October 2022*
