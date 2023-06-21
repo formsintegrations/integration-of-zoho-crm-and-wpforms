@@ -137,7 +137,6 @@
     "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-extract-translation-keys-plugin": "^5.0.2",
-    "workbox-webpack-plugin": "^6.2.4"
+    "webpack-extract-translation-keys-plugin": "^5.0.2"
   }
 }

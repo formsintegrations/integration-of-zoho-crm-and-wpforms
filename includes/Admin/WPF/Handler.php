@@ -25,7 +25,7 @@ final class Handler
         }
 
         $fields = [];
-        $fieldToExclude = ['divider','html','page-break', 'pagebreak', 'file-upload','payment-single','payment-multiple','payment-checkbox','payment-dropdown','payment-credit-card','payment-total'];
+        $fieldToExclude = ['divider','address','html','page-break', 'pagebreak', 'file-upload','payment-single','payment-multiple','payment-checkbox','payment-dropdown','payment-credit-card','payment-total'];
         foreach ($fieldDetails as  $id => $field) {
             if (in_array($field['type'], $fieldToExclude)) {
                 continue;
@@ -45,17 +45,7 @@ final class Handler
                     ];
                 }
 
-            } elseif($field['type']=='address' && $field['format'] != 'simple') {
-                $address = ['address1' => 'Address1', 'address2' => 'Address2','city' => 'City', 'state' => 'State','postal' => 'Zip Code'];
-                foreach ($address as $key => $value) {
-                    $fields[] = [
-                        'name' => "$id=>$key",
-                        'type' => "text",
-                        'label' => "$value",
-                    ];
-                }
             } else {
-
                 $fields[] = [
                         'name' => $id,
                         'type' => $field['type'],
