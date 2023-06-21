@@ -19,12 +19,13 @@ final class Handler
         }
         $form = \wpforms()->form->get($data->formId, ['content_only' => true]);
         $fieldDetails = $form['fields'];
+
         if (empty($fieldDetails)) {
             wp_send_json_error(__('Form doesn\'t exists', 'bitwpfzc'));
         }
 
         $fields = [];
-        $fieldToExclude = ['divider','html','address','page-break', 'pagebreak', 'file-upload','payment-single','payment-multiple','payment-checkbox','payment-dropdown','payment-credit-card','payment-total'];
+        $fieldToExclude = ['divider','html','page-break', 'pagebreak', 'file-upload','payment-single','payment-multiple','payment-checkbox','payment-dropdown','payment-credit-card','payment-total'];
         foreach ($fieldDetails as  $id => $field) {
             if (in_array($field['type'], $fieldToExclude)) {
                 continue;
@@ -43,7 +44,16 @@ final class Handler
                         'label' => "$value " . $field['label'],
                     ];
                 }
-                
+
+            } elseif($field['type']=='address' && $field['format'] != 'simple') {
+                $address = ['address1' => 'Address1', 'address2' => 'Address2','city' => 'City', 'state' => 'State','postal' => 'Zip Code'];
+                foreach ($address as $key => $value) {
+                    $fields[] = [
+                        'name' => "$id=>$key",
+                        'type' => "text",
+                        'label' => "$value",
+                    ];
+                }
             } else {
 
                 $fields[] = [
