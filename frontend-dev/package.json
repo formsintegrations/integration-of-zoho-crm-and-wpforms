@@ -31,7 +31,9 @@
     "regenerator-runtime": "^0.13.7",
     "sortablejs": "^1.12.0",
     "swr": "^0.5.5",
-    "tippy.js": "^6.3.1"
+    "tippy.js": "^6.3.1",
+    "gettext-parser": "^7.0.0"
+
   },
   "scripts": {
     "test": "react-scripts test",
@@ -52,7 +54,9 @@
     "stat:a": "webpack --profile --json > coverage/a.stats.json",
     "stat:f": "webpack --profile --json > coverage/f.stats.json --config webpack.frontend.config.js",
     "analyze:f": "webpack-bundle-analyzer coverage/f.stats.json",
-    "clean": "rimraf node_modules yarn.lock package-lock.json"
+    "clean": "rimraf node_modules yarn.lock package-lock.json",
+    "gettext-parser": "npx react-gettext-parser --output ./locale.pot --config ./gettext-parser.config.js  './src/**/{*.js,*.jsx}'"
+
   },
   "husky": {
     "hooks": {
