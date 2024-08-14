@@ -7,3 +7,4 @@ frontend-dev/pnpm.yaml
 vendor/
 views/view-root.php
 frontend-dev/pnpm-lock.yaml
+frontend-dev/.eslintrc.js

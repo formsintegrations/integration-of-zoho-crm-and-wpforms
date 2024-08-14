@@ -11,6 +11,8 @@
     "core-js": "^3.11.1",
     "create-file-list": "^1.0.1",
     "deepmerge-alt": "^0.3.0",
+    "gettext-parser": "^7.0.0",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-color-gradient-picker": "^0.1.2",
     "react-content-loader": "^6.0.3",
@@ -31,9 +33,7 @@
     "regenerator-runtime": "^0.13.7",
     "sortablejs": "^1.12.0",
     "swr": "^0.5.5",
-    "tippy.js": "^6.3.1",
-    "gettext-parser": "^7.0.0"
-
+    "tippy.js": "^6.3.1"
   },
   "scripts": {
     "test": "react-scripts test",
@@ -56,7 +56,6 @@
     "analyze:f": "webpack-bundle-analyzer coverage/f.stats.json",
     "clean": "rimraf node_modules yarn.lock package-lock.json",
     "gettext-parser": "npx react-gettext-parser --output ./locale.pot --config ./gettext-parser.config.js  './src/**/{*.js,*.jsx}'"
-
   },
   "husky": {
     "hooks": {
@@ -125,7 +124,6 @@
     "mini-css-extract-plugin": "^1.5.1",
     "mini-svg-data-uri": "^1.2.3",
     "module-to-cdn": "^3.1.5",
-    "node-sass": "^6.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss-loader": "^5.2.0",
     "postcss-safe-parser": "^5.0.2",
