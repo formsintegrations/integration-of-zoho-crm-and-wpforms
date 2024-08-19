@@ -40,9 +40,9 @@ final class IpTool
         if (isset($_SERVER)) {
             $user_agent = $_SERVER['HTTP_USER_AGENT'];
         } else {
-            global $HTTP_SERVER_VARS;
-            if (isset($HTTP_SERVER_VARS)) {
-                $user_agent = $HTTP_SERVER_VARS['HTTP_USER_AGENT'];
+            global $_SERVER;
+            if (isset($_SERVER)) {
+                $user_agent = $_SERVER['HTTP_USER_AGENT'];
             } else {
                 global $HTTP_USER_AGENT;
                 $user_agent = $HTTP_USER_AGENT;

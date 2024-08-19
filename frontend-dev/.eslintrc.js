@@ -42,7 +42,7 @@ module.exports = {
     'airbnb',
     'react-app',
   ],
-  plugins: ['babel', 'react', 'react-hooks', 'jsx-a11y', 'import', 'standard', 'promise', 'node'],
+  plugins: ['babel', 'react', 'react-hooks', 'jsx-a11y', 'import', 'promise', 'node'],
   rules: {
     'template-curly-spacing': 'off',
     indent: ['error', 2, { SwitchCase: 1 }],
