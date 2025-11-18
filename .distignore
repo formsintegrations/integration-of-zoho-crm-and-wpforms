@@ -1,4 +1,12 @@
-frontend-dev
+frontend
+node_modules
+.gitattributes*
 .gitignore
 composer.lock
+gettext-parser.config.js
+package.json
+pnpm-lock.yaml
+port
+pot-to-php.js
+vite.config.js
 .vscode

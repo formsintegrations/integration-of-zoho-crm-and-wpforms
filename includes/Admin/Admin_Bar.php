@@ -1,4 +1,5 @@
 <?php
+
 namespace BitCode\BITWPFZC\Admin;
 
 use BitCode\BITWPFZC\Core\Util\DateTimeHelper;
@@ -15,6 +16,7 @@ class Admin_Bar
         add_action('in_admin_header', [$this, 'RemoveAdminNotices']);
         add_action('admin_menu', [$this, 'AdminMenu'], 9, 0);
         add_action('admin_enqueue_scripts', [$this, 'AdminAssets']);
+        add_filter('script_loader_tag', [$this, 'filterScriptTag'], 0, 3);
     }
 
 
@@ -25,8 +27,13 @@ class Admin_Bar
      */
     public function AdminMenu()
     {
+        global $submenu;
         $capability = apply_filters('bitwpfzc_form_access_capability', 'manage_options');
-        add_menu_page(__('Zoho CRM integration for WPForms', 'bitwpfzc'), 'WPForms Zoho CRM', $capability, 'bitwpfzc', array($this, 'RootPage'), 'data:image/svg+xml;base64,' . base64_encode('<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><defs><style>.cls-1{fill:#fff;}</style></defs><path class="cls-1" d="M105.71,104.4V23.6a1.33,1.33,0,0,0-1.31-1.31h-2.08L77.69,39,64,27.83,50.31,39,25.68,22.29H23.6a1.33,1.33,0,0,0-1.31,1.31v80.8a1.33,1.33,0,0,0,1.31,1.31h80.8a1.33,1.33,0,0,0,1.31-1.31ZM50,32.07l12-9.78H35.59Zm28,0,14.4-9.78H66Zm36-8.47v80.8a9.56,9.56,0,0,1-9.65,9.65H23.6A9.56,9.56,0,0,1,14,104.4V23.6A9.56,9.56,0,0,1,23.6,14h80.8a9.56,9.56,0,0,1,9.65,9.65Z"/><path class="cls-1" d="M48.75,97.53A4.76,4.76,0,0,1,44,92.88v0A6.35,6.35,0,0,1,44.62,90a12.47,12.47,0,0,1,1.58-2.5L69.93,58.26H47.48a2.77,2.77,0,0,1-2.6-1.82v0a7.21,7.21,0,0,1-.4-2.46,4.32,4.32,0,0,1,1.07-3.27,3.91,3.91,0,0,1,2.81-1H78.23a4.86,4.86,0,0,1,4.9,4.74v.06a6.15,6.15,0,0,1-.62,2.71,12.06,12.06,0,0,1-1.63,2.51L57.25,89h24a2.51,2.51,0,0,1,2.4,1.72v0a8,8,0,0,1,.36,2.45A4.33,4.33,0,0,1,83,96.51a3.9,3.9,0,0,1-2.81,1Z"/></svg>'), 30);
+        if (current_user_can($capability)) {
+
+            add_menu_page(__('Zoho CRM integration for WPForms', 'bitwpfzc'), 'WPForms Zoho CRM', $capability, 'bitwpfzc', array($this, 'RootPage'), 'data:image/svg+xml;base64,' . base64_encode('<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><defs><style>.cls-1{fill:#fff;}</style></defs><path class="cls-1" d="M105.71,104.4V23.6a1.33,1.33,0,0,0-1.31-1.31h-2.08L77.69,39,64,27.83,50.31,39,25.68,22.29H23.6a1.33,1.33,0,0,0-1.31,1.31v80.8a1.33,1.33,0,0,0,1.31,1.31h80.8a1.33,1.33,0,0,0,1.31-1.31ZM50,32.07l12-9.78H35.59Zm28,0,14.4-9.78H66Zm36-8.47v80.8a9.56,9.56,0,0,1-9.65,9.65H23.6A9.56,9.56,0,0,1,14,104.4V23.6A9.56,9.56,0,0,1,23.6,14h80.8a9.56,9.56,0,0,1,9.65,9.65Z"/><path class="cls-1" d="M48.75,97.53A4.76,4.76,0,0,1,44,92.88v0A6.35,6.35,0,0,1,44.62,90a12.47,12.47,0,0,1,1.58-2.5L69.93,58.26H47.48a2.77,2.77,0,0,1-2.6-1.82v0a7.21,7.21,0,0,1-.4-2.46,4.32,4.32,0,0,1,1.07-3.27,3.91,3.91,0,0,1,2.81-1H78.23a4.86,4.86,0,0,1,4.9,4.74v.06a6.15,6.15,0,0,1-.62,2.71,12.06,12.06,0,0,1-1.63,2.51L57.25,89h24a2.51,2.51,0,0,1,2.4,1.72v0a8,8,0,0,1,.36,2.45A4.33,4.33,0,0,1,83,96.51a3.9,3.9,0,0,1-2.81,1Z"/></svg>'), 30);
+            $submenu['bitwpfzc'][] = array(__('Forms', 'bitwpfzc'), $capability, 'admin.php?page=bitwpfzc#/');
+        }
     }
     /**
      * Load the asset libraries
@@ -42,41 +49,39 @@ class Admin_Bar
         $site_url = $parsed_url['scheme'] . "://" . $parsed_url['host'];
         $site_url .= empty($parsed_url['port']) ? null : ':' . $parsed_url['port'];
         $base_path_admin =  str_replace($site_url, '', get_admin_url());
-        wp_enqueue_script(
-            'bitwpfzc-vendors',
-            BITWPFZC_ASSET_JS_URI . '/vendors-main.js',
-            null,
-            BITWPFZC_VERSION,
-            true
-        );
-        wp_enqueue_script(
-            'bitwpfzc-runtime',
-            BITWPFZC_ASSET_JS_URI . '/runtime.js',
-            null,
-            BITWPFZC_VERSION,
-            true
-        );
-        if (wp_script_is('wp-i18n')) {
-            $deps = array('bitwpfzc-vendors', 'bitwpfzc-runtime', 'wp-i18n');
-        } else {
-            $deps = array('bitwpfzc-vendors', 'bitwpfzc-runtime', );
-        }
-        wp_enqueue_script(
-            'bitwpfzc-admin-script',
-            BITWPFZC_ASSET_JS_URI . '/index.js',
-            $deps,
-            BITWPFZC_VERSION,
-            true
-        );
 
-        wp_enqueue_style(
-            'bitwpfzc-styles',
-            BITWPFZC_ASSET_URI . '/css/bitwpfzc.css',
-            null,
-            BITWPFZC_VERSION,
-            'screen'
-        );
-       
+        $prefix = 'FITWPFZC';
+        if (is_readable(BITWPFZC_PLUGIN_DIR_PATH . DIRECTORY_SEPARATOR . 'port')) {
+            $devPort = file_get_contents(BITWPFZC_PLUGIN_DIR_PATH . DIRECTORY_SEPARATOR . 'port');
+            $devUrl = 'http://localhost:' . $devPort;
+            wp_enqueue_script(
+                'vite-client-helper-' . $prefix . '-MODULE',
+                $devUrl . '/config/devHotModule.js',
+                [],
+                null
+            );
+
+            wp_enqueue_script(
+                'vite-client-' . $prefix . '-MODULE',
+                $devUrl . '/@vite/client',
+                [],
+                null
+            );
+            wp_enqueue_script(
+                'index-' . $prefix . '-MODULE',
+                $devUrl . '/index.jsx',
+                [],
+                null
+            );
+        } else {
+            wp_enqueue_script(
+                'index-' . $prefix . '-MODULE',
+                BITWPFZC_ASSET_URI . "/index-" . BITWPFZC_VERSION . ".js",
+                [],
+                null
+            );
+        }
+
         $gclidHandler = new GclidHandler();
         $gclid_enabled = $gclidHandler->get_enabled_form_lsit();
         $forms = \WPForms()->form->get();
@@ -101,16 +106,15 @@ class Admin_Bar
                 'erase_all'  => get_option('bitwpfzc_erase_all'),
                 'dateFormat'  => get_option('date_format'),
                 'timeFormat'  => get_option('time_format'),
-                'new_page'  => admin_url('admin.php?page=wpforms-builder'),
                 'timeZone'  => DateTimeHelper::wp_timezone_string(),
                 'redirect' => get_rest_url() . 'bitwpfzc/redirect',
             )
         );
         if (get_locale() !== 'en_US' && file_exists(BITWPFZC_PLUGIN_DIR_PATH . '/languages/generatedString.php')) {
             include_once BITWPFZC_PLUGIN_DIR_PATH . '/languages/generatedString.php';
-            $bitwpfzc['translations'] = $bitwpfzc_i18n_strings;
+            $bitwpfzc['translations'] = $i18nStrings;
         }
-        wp_localize_script('bitwpfzc-admin-script', 'bitwpfzc', $bitwpfzc);
+        wp_localize_script('index-' . $prefix . '-MODULE', 'bitwpfzc', $bitwpfzc);
     }
 
     /**
@@ -120,6 +124,24 @@ class Admin_Bar
     public function RootPage()
     {
         require_once BITWPFZC_PLUGIN_DIR_PATH . '/views/view-root.php';
+    }
+
+    /**
+     * Filter script tag to add type="module" attribute
+     *
+     * @param string $html   The script tag HTML
+     * @param string $handle The script handle
+     *
+     * @return string
+     */
+    public function filterScriptTag($html, $handle, $href)
+    {
+        $newTag = $html;
+        $prefix = 'FITWPFZC';
+        if (preg_match('/' . $prefix . '-MODULE/', $handle)) {
+            $newTag = preg_replace('/<script /', '<script type="module" ', $newTag);
+        }
+        return $newTag;
     }
 
     public function RemoveAdminNotices()

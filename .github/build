@@ -1,0 +1,26 @@
+#!/usr/bin/env /usr/bin/bash
+
+PLUGIN_DIR="$PWD"
+
+SLUG="integration-of-zoho-crm-and-wpforms"
+Translator_MAIL="support@formsintegrations.com"
+
+rm -rf "$PLUGIN_DIR/build";
+mkdir -p "$PLUGIN_DIR/build/$SLUG";
+BUILD_DIR="$PLUGIN_DIR/build/$SLUG";
+
+if [ ! -d "$PLUGIN_DIR/languages" ]; then
+    mkdir "$PLUGIN_DIR/languages";
+fi
+
+
+cd "$PLUGIN_DIR"
+
+pnpm production
+
+rsync -rc --exclude=.git* --exclude-from="$PLUGIN_DIR/.distignore" "$PLUGIN_DIR/" "$BUILD_DIR/" --delete --delete-excluded
+
+# cp -r "$PLUGIN_DIR/includes"  "$BUILD_DIR/includes"
+# cp -r "$PLUGIN_DIR/resource"  "$BUILD_DIR/resource"
+# cp -r "$PLUGIN_DIR/views"  "$BUILD_DIR/views"
+
