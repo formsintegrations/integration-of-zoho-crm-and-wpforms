@@ -1,2 +1,10 @@
 .gitignore merge=ours
-* text eol=lf
+# Mark image files as binary to prevent corruption
+*.png binary -text -diff -merge
+*.jpg binary -text -diff -merge
+*.jpeg binary -text -diff -merge
+*.gif binary -text -diff -merge
+*.webp binary -text -diff -merge
+*.svg binary -text -diff -merge
+# Only apply text processing to files Git detects as text
+* text=auto eol=lf
