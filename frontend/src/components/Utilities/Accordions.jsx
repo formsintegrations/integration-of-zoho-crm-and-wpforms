@@ -17,8 +17,6 @@ function Accordions({
   onExpand,
   onCollapse
 }) {
-  console.log('%c $render Accordions', 'background:aquamarine;padding:3px;border-radius:5px;')
-
   const [tgl, setTgl] = useState(false)
   const [H, setH] = useState(0)
   const inp = useRef(null)

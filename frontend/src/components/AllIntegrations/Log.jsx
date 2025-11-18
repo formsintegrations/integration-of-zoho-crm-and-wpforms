@@ -1,11 +1,9 @@
-import { lazy, useEffect, useState, useCallback, useRef, memo } from 'react'
+import { useState, useCallback, useRef, memo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { __ } from '../../Utils/i18nwrap'
 import SnackMsg from '../Utilities/SnackMsg'
 import Table from '../Utilities/Table'
 import bitsFetch from '../../Utils/bitsFetch'
-const ZohoCRMAuthorization = lazy(() => import('./ZohoCRM/ZohoCRMAuthorization'))
-const Loader = lazy(() => import('../Loaders/Loader'))
 import CopyText from '../Utilities/CopyText'
 
 function Log({ allIntegURL, integrations }) {
@@ -58,7 +56,6 @@ function Log({ allIntegURL, integrations }) {
       entries.push(rows.original.id)
     }
     const ajaxData = { id: entries }
-    console.log('ajaxData', ajaxData, entries)
     bitsFetch(ajaxData, 'log/delete').then(res => {
       if (res.success) {
         if (action && action.fetchData && action.data) {
@@ -94,7 +91,6 @@ function Log({ allIntegURL, integrations }) {
 
   const fetchData = useCallback(
     ({ pageSize, pageIndex }) => {
-      console.log('dasddalfhalsfla/log')
       // eslint-disable-next-line no-plusplus
       /* if (refreshResp) {
         setisloading(true)

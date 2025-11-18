@@ -19,8 +19,6 @@ function EditZohoCRM({ formFields, setIntegration, integrations, allIntegURL }) 
   const [snack, setSnackbar] = useState({ show: false })
   const [tab, settab] = useState(0)
 
-  console.log('crmConf', crmConf)
-
   const saveConfig = () => {
     if (!checkMappedFields(crmConf)) {
       setSnackbar({ show: true, msg: __('Please map mandatory fields', 'bitwpfzc') })
@@ -28,10 +26,8 @@ function EditZohoCRM({ formFields, setIntegration, integrations, allIntegURL }) 
     }
     const resp = saveIntegConfig(formID, integrations, setIntegration, allIntegURL, crmConf, navigate, id, 1)
     resp.then(res => {
-      console.clear()
       if (res.success) {
         setSnackbar({ show: true, msg: res?.data })
-        console.log('res', res)
         setTimeout(() => {
           navigate(allIntegURL)
         }, 200);

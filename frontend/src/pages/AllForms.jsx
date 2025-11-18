@@ -21,7 +21,6 @@ function AllFroms({ newFormId }) {
   const handleStatus = (e, id) => {
     const status = e.target.checked
     const data = { id, status }
-    console.log('status', status)
     let action = 'gclid/disable'
     if (status) {
       action = 'gclid/enable'

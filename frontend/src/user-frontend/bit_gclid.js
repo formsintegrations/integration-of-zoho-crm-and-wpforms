@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (typeof bit_gclid === 'string' && bit_gclid.length > 0) {
         let bit_gclid_elm = document.getElementsByName("gclid");
         bit_gclid_elm.forEach(elm => {
-            console.log(`bit_gclid_elm`, elm);
             elm.value = bit_gclid;
         })
 
@@ -52,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 var bitwpfzc_forms = document.getElementsByClassName('wpcf7-form');
 let bit_count = bitwpfzc_forms.length
-console.log('bit', bit_count);
 if (bit_count > 0) {
     let bit_gclid = getGclid();
     while (bit_count--) {

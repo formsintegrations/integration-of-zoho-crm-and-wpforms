@@ -24,7 +24,6 @@ export default function ZohoCRMNewRecord({
   }, [])
   // eslint-disable-next-line no-undef
   const isPro = typeof bitwpfzc !== 'undefined' && bitwpfzc.isPro
-  console.log('crmConf', crmConf)
   return (
     <>
       {isLoading && (

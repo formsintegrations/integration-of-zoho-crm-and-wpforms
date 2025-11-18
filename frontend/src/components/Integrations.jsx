@@ -10,7 +10,6 @@ import Log from './AllIntegrations/Log'
 import NewInteg from './AllIntegrations/NewInteg'
 import ConfirmModal from './Utilities/ConfirmModal'
 import SnackMsg from './Utilities/SnackMsg'
-import Modal from './Utilities/Modal'
 import EditIcn from '../Icons/EditIcn'
 import TimeIcn from '../Icons/TimeIcn'
 import SingleToggle2 from './Utilities/SingleToggle2'
@@ -33,7 +32,6 @@ function Integrations() {
     bitsFetch(data, 'ff/get/form')
       .then(res => {
         if ('success' in res && res.success) {
-          console.log(res)
           if (res.data?.fields) {
             setformFields(res.data.fields)
           }
@@ -64,9 +62,7 @@ function Integrations() {
       .catch(() => {
         setSnackbar({ ...{ show: true, msg: __('Failed to toggel integration status', 'bitwpfzc') } })
       })
-    console.log(tempIntegration[id].status, ev, id, data)
   }
-  console.log(formFields)
   const removeInteg = i => {
     const tempIntegration = { ...integrations[i] }
     const newInteg = [...integrations]
@@ -156,7 +152,6 @@ function Integrations() {
 
                 {integrations.map((inte, i) => (
                   <div role="button" className="btcd-inte-card mr-4 mt-3" key={`inte-${i + 3}`}>
-                    {console.log('inte.status', inte.status, inte.status == 1)}
                     <SingleToggle2
                       className="flx mt-2 pos-abs r-n-1 z-9"
                       action={e => handleStatus(e, i)}

@@ -1,6 +1,4 @@
 function TableAction(props) {
-  console.log('%c $render TableAction', 'background:orange;padding:3px;border-radius:5px')
-
   return (
     <div className="btcd-t-action-wrp flx">
       <div className="btcd-t-action">
