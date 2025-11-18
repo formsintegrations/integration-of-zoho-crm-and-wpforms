@@ -2,7 +2,6 @@
 
 /**
  * Plugin Name: Integration of Zoho CRM and WPForms
- * Requires Plugins: wpforms-lite
  * Plugin URI:  https://formsintegrations.com/wp-forms-integration-with-zoho-crm
  * Description: Sends WPForms entries to Zoho CRM
  * Version:     1.0.6
