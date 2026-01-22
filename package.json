@@ -12,7 +12,7 @@
     "create-file-list": "^1.0.1",
     "deepmerge-alt": "^0.3.0",
     "gettext-parser": "^7.0.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "react": "^18.2.0",
     "react-color-gradient-picker": "^0.1.2",
     "react-content-loader": "^6.0.3",
