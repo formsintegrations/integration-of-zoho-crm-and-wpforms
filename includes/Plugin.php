@@ -7,6 +7,7 @@ namespace BitCode\BITWPFZC;
  *
  * @since 1.0.0-alpha
  */
+
 use BitCode\BITWPFZC\Core\Database\DB;
 use BitCode\BITWPFZC\Admin\Admin_Bar;
 use BitCode\BITWPFZC\Admin\AdminHooks;
@@ -43,11 +44,11 @@ final class Plugin
     public function init_plugin()
     {
         if (!function_exists('wpforms') || !is_callable('wpforms')) {
-            add_action('admin_notices', [$this ,'wpfNotFound']);
+            add_action('admin_notices', [$this, 'wpfNotFound']);
             return;
         }
         add_action('init', array($this, 'init_classes'), 10);
-        add_filter('plugin_action_links_' . plugin_basename(BITWPFZC_PLUGIN_MAIN_FILE), array( $this, 'plugin_action_links' ));
+        add_filter('plugin_action_links_' . plugin_basename(BITWPFZC_PLUGIN_MAIN_FILE), array($this, 'plugin_action_links'));
     }
 
     public function wpfNotFound()
@@ -81,7 +82,7 @@ final class Plugin
      */
     public function plugin_action_links($links)
     {
-        $links[] = '<a href="https://formsintegrations.com/wpforms-integration-with-zoho-crm/documentation" target="_blank">' . __('Docs', 'bitwpfzc') . '</a>';
+        $links[] = '<a href="https://formsintegrations.com/wpforms-integration-with-zoho-crm/" target="_blank">' . __('Docs', 'bitwpfzc') . '</a>';
 
         return $links;
     }
@@ -105,7 +106,7 @@ final class Plugin
         }
         global $bitwpfzc_db_version;
         $installed_db_version = get_site_option("bitwpfzc_db_version");
-        if ($installed_db_version!=$bitwpfzc_db_version) {
+        if ($installed_db_version != $bitwpfzc_db_version) {
             DB::migrate();
         }
     }
