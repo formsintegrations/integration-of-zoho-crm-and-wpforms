@@ -1,1 +1,2 @@
-<?php header("Location: /wp-admin/admin.php?page=bitwpfzc#/?source=pwa")?>
+<?php wp_safe_redirect(admin_url("admin.php?page=bitwpfzc#/?source=pwa"));
+exit;
