@@ -2,9 +2,9 @@
 Contributors: formsintegrations
 Tags: Zoho with WPForms,  WPForms with Zoho, Zoho and WPForms, WPForms and Zoho, Zoho Integration, WPForms Integration, Zoho CRM, Integration, WPForms
 Requires at least: 5.0
-Tested up to: 6.8.3
+Tested up to: 6.9.1
 Requires PHP: 5.6
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 
 == Description ==
@@ -87,6 +87,9 @@ Visit plugin's [website](https://formsintegrations.com/wp-forms-integration-with
 
 
 == Changelog ==
+
+= 1.0.7 =
+* Tested with WP version 6.9.1
 
 = 1.0.6 =
 *Tested with WordPress version 6.8.3
